@@ -8,12 +8,12 @@ describe('generating passing report', function () {
     try {
       await v.schema.loadFromFileSystem('schemas/pass.json');
     } catch (err) {
-      throw new Error('Unable to load test schema');
+      throw new Error('Unable to load test schema: pass.json');
     }
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
     await v.generateReport();
   });
@@ -68,12 +68,12 @@ describe('generating failing report', function () {
     try {
       await v.schema.loadFromFileSystem('schemas/fail.json');
     } catch (err) {
-      throw new Error('Unable to load test schema');
+      throw new Error('Unable to load test schema: fail.json');
     }
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
     await v.generateReport();
   });

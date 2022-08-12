@@ -8,7 +8,7 @@ describe('loading passing schema', function () {
     try {
       await v.schema.loadFromFileSystem('schemas/pass.json');
     } catch (err) {
-      throw new Error('Unable to load pass schema');
+      throw new Error('Unable to load schema: pass.json');
     }
   });
   describe('loaded', function () {
@@ -64,7 +64,7 @@ describe('loading failing schema', function () {
     try {
       await v.schema.loadFromFileSystem('schemas/fail.json');
     } catch (err) {
-      throw new Error('Unable to load fail schema');
+      throw new Error('Unable to load schema: fail.json');
     }
   });
   describe('loaded', function () {

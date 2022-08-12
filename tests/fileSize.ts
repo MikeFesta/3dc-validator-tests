@@ -8,7 +8,7 @@ describe('file size passing report', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
   });
 
@@ -17,11 +17,13 @@ describe('file size passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-no-check.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-no-check.json');
       }
       await v.generateReport();
     });
     it('should report not tested, but have the file size in the message', function () {
+      expect(v.schema.maxFileSizeInKb.value).to.equal(-1);
+      expect(v.schema.minFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.false;
       expect(v.report.fileSize.message).to.equal('File size: 2kb');
@@ -33,11 +35,12 @@ describe('file size passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-no-min-pass.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-no-min-pass.json');
       }
       await v.generateReport();
     });
     it('should report being under the max file size', function () {
+      expect(v.schema.minFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
@@ -50,11 +53,12 @@ describe('file size passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-no-max-pass.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-no-max-pass.json');
       }
       await v.generateReport();
     });
     it('should report being over the min file size', function () {
+      expect(v.schema.maxFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
@@ -67,7 +71,7 @@ describe('file size passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-within-range-pass.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-within-range-pass.json');
       }
       await v.generateReport();
     });
@@ -87,7 +91,7 @@ describe('file size failing report', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
   });
 
@@ -96,11 +100,12 @@ describe('file size failing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-no-min-fail.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-no-min-fail.json');
       }
       await v.generateReport();
     });
     it('should report being over the max file size', function () {
+      expect(v.schema.minFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
@@ -113,11 +118,12 @@ describe('file size failing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-no-max-fail.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-no-max-fail.json');
       }
       await v.generateReport();
     });
     it('should report being under the min file size', function () {
+      expect(v.schema.maxFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
@@ -130,7 +136,7 @@ describe('file size failing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/file-size/file-size-within-range-fail.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: file-size-within-range-fail.json');
       }
       await v.generateReport();
     });

@@ -8,7 +8,7 @@ describe('loading passing product info', function () {
     try {
       await v.productInfo.loadFromFileSystem('products/blender-default-cube-passing.json');
     } catch (err) {
-      throw new Error('Unable to load passing product info');
+      throw new Error('Unable to load product info: blender-default-cube-passing.json');
     }
   });
   describe('loaded', function () {
@@ -32,7 +32,7 @@ describe('loading failing product info', function () {
     try {
       await v.productInfo.loadFromFileSystem('products/blender-default-cube-failing.json');
     } catch (err) {
-      throw new Error('Unable to load failing product info');
+      throw new Error('Unable to load product info: blender-default-cube-failing.json');
     }
   });
   describe('loaded', function () {

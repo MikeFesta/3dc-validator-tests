@@ -8,7 +8,7 @@ describe('triangle count passing report', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
   });
 
@@ -17,7 +17,7 @@ describe('triangle count passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/triangle-count/triangle-count-no-check.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: triangle-count-no-check.json');
       }
       await v.generateReport();
     });
@@ -33,7 +33,7 @@ describe('triangle count passing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/triangle-count/triangle-count-pass.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: triangle-count-pass.json');
       }
       await v.generateReport();
     });
@@ -53,7 +53,7 @@ describe('triangle count failing report', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
   });
 
@@ -62,7 +62,7 @@ describe('triangle count failing report', function () {
       try {
         await v.schema.loadFromFileSystem('schemas/triangle-count/triangle-count-fail.json');
       } catch (err) {
-        throw new Error('Unable to load test schema. ' + (err as Error).message);
+        throw new Error('Unable to load test schema: triangle-count-fail.json');
       }
       await v.generateReport();
     });

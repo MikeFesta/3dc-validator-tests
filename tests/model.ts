@@ -8,7 +8,7 @@ describe('loading passing model', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
   });
   describe('loaded', function () {
@@ -55,7 +55,7 @@ describe('loading failing model', function () {
     try {
       await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
     } catch (err) {
-      throw new Error('Unable to load test model');
+      throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
   });
   describe('loaded', function () {
