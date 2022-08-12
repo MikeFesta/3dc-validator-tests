@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Validator } from '@mikefesta/3dc-validator';
 
-describe('file size report passing', function () {
+describe('file size passing report', function () {
   const v = new Validator();
 
   before('load model', async function () {
@@ -80,7 +80,7 @@ describe('file size report passing', function () {
   });
 });
 
-describe('file size report failing', function () {
+describe('file size failing report', function () {
   const v = new Validator();
 
   before('load model', async function () {

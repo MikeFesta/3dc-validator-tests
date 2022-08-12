@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Validator } from '@mikefesta/3dc-validator';
 
-describe('triangle count report passing', function () {
+describe('triangle count passing report', function () {
   const v = new Validator();
 
   before('load model', async function () {
@@ -46,7 +46,7 @@ describe('triangle count report passing', function () {
   });
 });
 
-describe('triangle count report failing', function () {
+describe('triangle count failing report', function () {
   const v = new Validator();
 
   before('load model', async function () {

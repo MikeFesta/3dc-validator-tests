@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { Validator } from '@mikefesta/3dc-validator';
 
-describe('schema passing', function () {
+describe('loading passing schema', function () {
   const v = new Validator();
 
   before('load schema', async function () {
@@ -57,7 +57,7 @@ describe('schema passing', function () {
   });
 });
 
-describe('schema failing', function () {
+describe('loading failing schema', function () {
   const v = new Validator();
 
   before('load schema', async function () {
