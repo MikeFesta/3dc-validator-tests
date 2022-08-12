@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import { Validator } from '@mikefesta/3dc-validator';
 
-describe('Report Passing', function () {
+describe('report passing', function () {
   const v = new Validator();
 
-  before('Load Report', async function () {
+  before('load report', async function () {
     try {
       await v.schema.loadFromFileSystem('schemas/pass.json');
     } catch (err) {
@@ -17,42 +17,43 @@ describe('Report Passing', function () {
     }
     await v.generateReport();
   });
-  describe('Ready', function () {
+
+  describe('ready', function () {
     it('should have the passing report ready', function () {
       expect(v.reportReady).to.be.true;
     });
   });
-  describe('File Size', function () {
+  describe('file size', function () {
     it('should pass for pass.schema and blender-default-cube-passing', function () {
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
     });
   });
-  describe('Triangle Count', function () {
+  describe('triangle count', function () {
     it('should pass for pass.schema and blender-default-cube-passing', function () {
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.true;
     });
   });
-  describe('Material Count', function () {
+  describe('material count', function () {
     it('should pass for pass.schema and blender-default-cube-passing', function () {
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.true;
     });
   });
-  describe('Texture Dimensions are Powers of 2', function () {
+  describe('texture dimensions are powers of 2', function () {
     it('should pass for pass.schema and blender-default-cube-passing', function () {
       expect(v.report.texturesPowerOfTwo.tested).to.be.true;
       expect(v.report.texturesPowerOfTwo.pass).to.be.true;
     });
   });
-  describe('Max Dimensions', function () {
+  describe('max dimensions', function () {
     it('should be less than 100x100x100', function () {
       expect(v.report.dimensionsMax.tested).to.be.true;
       expect(v.report.dimensionsMax.pass).to.be.true;
     });
   });
-  describe('Min Dimensions', function () {
+  describe('min dimensions', function () {
     it('should be greater than 0.01x0.01x0.01', function () {
       expect(v.report.dimensionsMin.tested).to.be.true;
       expect(v.report.dimensionsMin.pass).to.be.true;
@@ -60,10 +61,10 @@ describe('Report Passing', function () {
   });
 });
 
-describe('Report Failing', function () {
+describe('report failing', function () {
   const v = new Validator();
 
-  before('Load Report', async function () {
+  before('load report', async function () {
     try {
       await v.schema.loadFromFileSystem('schemas/fail.json');
     } catch (err) {
@@ -76,42 +77,42 @@ describe('Report Failing', function () {
     }
     await v.generateReport();
   });
-  describe('Ready', function () {
+  describe('ready', function () {
     it('should have the failing report ready', function () {
       expect(v.reportReady).to.be.true;
     });
   });
-  describe('File Size', function () {
+  describe('file size', function () {
     it('should fail for fail.schema and blender-default-cube-failing', function () {
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
     });
   });
-  describe('Triangle Count', function () {
+  describe('triangle count', function () {
     it('should fail for fail.schema and blender-default-cube-failing', function () {
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.false;
     });
   });
-  describe('Texture Dimensions are Powers of 2', function () {
+  describe('texture dimensions are powers of 2', function () {
     it('should fail for fail.schema and blender-default-cube-failing', function () {
       expect(v.report.texturesPowerOfTwo.tested).to.be.true;
       expect(v.report.texturesPowerOfTwo.pass).to.be.false;
     });
   });
-  describe('Material Count', function () {
+  describe('material count', function () {
     it('should fail for fail.schema and blender-default-cube-failing', function () {
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.false;
     });
   });
-  describe('Max Dimensions', function () {
+  describe('max dimensions', function () {
     it('should fail for being larger than 10m width and depth', function () {
       expect(v.report.dimensionsMax.tested).to.be.true;
       expect(v.report.dimensionsMax.pass).to.be.false;
     });
   });
-  describe('Min Dimensions', function () {
+  describe('min dimensions', function () {
     it('should fail for height smaller than 1m', function () {
       expect(v.report.dimensionsMin.tested).to.be.true;
       expect(v.report.dimensionsMin.pass).to.be.false;
