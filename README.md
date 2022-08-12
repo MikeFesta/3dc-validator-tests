@@ -12,6 +12,7 @@ By default, the lastest version of 3dc-validator in npm is tested, but you can c
 ## File types in this repository
 ---
 * models/*.glb - Binary 3D files in glTF format
+* products/*.json - Product information for models (optional)
 * schemas/*.json - 3D Commerce schema definition files
 * tests/*.ts - Mocha+Chai unit tests written in Typescript
 

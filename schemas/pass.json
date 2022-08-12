@@ -1,0 +1,26 @@
+{
+  "fileSizeInKb": {
+    "min": 1,
+    "max": 5120
+  },
+  "maxTriangleCount": 30000,
+  "maxMaterialCount": 2,
+  "requireTextureDimensionsBePowersOfTwo": true,
+  "dimensions": {
+    "maximum": {
+      "length": 100.0,
+      "width": 100.0,
+      "height": 100.0
+    },
+    "minimum": {
+      "length": 0.01,
+      "width": 0.01,
+      "height": 0.01
+    },
+    "percentTolerance": {
+      "length": 1,
+      "width": 2,
+      "height": 3
+    }
+  }
+}
