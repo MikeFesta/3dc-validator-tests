@@ -17,22 +17,22 @@ describe('schema passing', function () {
     });
   });
   describe('min file size', function () {
-    it('should match the pass.schema min of -1 for no check', function () {
+    it('should match the pass schema min of -1 for no check', function () {
       expect(v.schema.minFileSizeInKb.value as number).to.equal(-1);
     });
   });
   describe('max file size', function () {
-    it('should match the pass.schema max file size of 5120kb', function () {
+    it('should match the pass schema max file size of 5120kb', function () {
       expect(v.schema.maxFileSizeInKb.value as number).to.equal(5120);
     });
   });
   describe('max triangle count', function () {
-    it('should match the pass.schema max triangle count of 30,000', function () {
+    it('should match the pass schema max triangle count of 30,000', function () {
       expect(v.schema.maxTriangleCount.value as number).to.equal(30000);
     });
   });
   describe('max material count', function () {
-    it('should match the pass.schema max material count of 2', function () {
+    it('should match the pass schema max material count of 2', function () {
       expect(v.schema.maxMaterialCount.value as number).to.equal(2);
     });
   });
@@ -73,22 +73,22 @@ describe('schema failing', function () {
     });
   });
   describe('min file size', function () {
-    it('should match the fail.schema min file size of 100kb', function () {
+    it('should match the fail schema min file size of 100kb', function () {
       expect(v.schema.minFileSizeInKb.value as number).to.equal(100);
     });
   });
   describe('max file size', function () {
-    it('should match the fail.schema max file size of 1024kb', function () {
+    it('should match the fail schema max file size of 1024kb', function () {
       expect(v.schema.maxFileSizeInKb.value as number).to.equal(1024);
     });
   });
   describe('max triangle count', function () {
-    it('should match the fail.schema max triangle count of 6', function () {
+    it('should match the fail schema max triangle count of 6', function () {
       expect(v.schema.maxTriangleCount.value as number).to.equal(6);
     });
   });
   describe('max material count', function () {
-    it('should match the fail.schema max material count of 1', function () {
+    it('should match the fail schema max material count of 1', function () {
       expect(v.schema.maxMaterialCount.value as number).to.equal(1);
     });
   });

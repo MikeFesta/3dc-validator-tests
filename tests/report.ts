@@ -24,25 +24,25 @@ describe('report passing', function () {
     });
   });
   describe('file size', function () {
-    it('should pass for pass.schema and blender-default-cube-passing', function () {
+    it('should pass for blender-default-cube-passing', function () {
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
     });
   });
   describe('triangle count', function () {
-    it('should pass for pass.schema and blender-default-cube-passing', function () {
+    it('should pass for blender-default-cube-passing', function () {
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.true;
     });
   });
   describe('material count', function () {
-    it('should pass for pass.schema and blender-default-cube-passing', function () {
+    it('should pass for blender-default-cube-passing', function () {
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.true;
     });
   });
   describe('texture dimensions are powers of 2', function () {
-    it('should pass for pass.schema and blender-default-cube-passing', function () {
+    it('should pass for blender-default-cube-passing', function () {
       expect(v.report.texturesPowerOfTwo.tested).to.be.true;
       expect(v.report.texturesPowerOfTwo.pass).to.be.true;
     });
@@ -83,25 +83,25 @@ describe('report failing', function () {
     });
   });
   describe('file size', function () {
-    it('should fail for fail.schema and blender-default-cube-failing', function () {
+    it('should fail for blender-default-cube-failing', function () {
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
     });
   });
   describe('triangle count', function () {
-    it('should fail for fail.schema and blender-default-cube-failing', function () {
+    it('should fail for blender-default-cube-failing', function () {
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.false;
     });
   });
   describe('texture dimensions are powers of 2', function () {
-    it('should fail for fail.schema and blender-default-cube-failing', function () {
+    it('should fail for blender-default-cube-failing', function () {
       expect(v.report.texturesPowerOfTwo.tested).to.be.true;
       expect(v.report.texturesPowerOfTwo.pass).to.be.false;
     });
   });
   describe('material count', function () {
-    it('should fail for fail.schema and blender-default-cube-failing', function () {
+    it('should fail for blender-default-cube-failing', function () {
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.false;
     });
