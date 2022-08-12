@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "test": "mocha -n loader=ts-node/esm 'tests/**/*.ts'",
+    "test-models": "mocha -n loader=ts-node/esm 'model-tests/**/*.ts'",
     "test-by-name": "mocha -n loader=ts-node/esm 'tests/**/*.ts' --grep"
   },
   "devDependencies": {
