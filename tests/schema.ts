@@ -17,8 +17,8 @@ describe('Schema Passing', function () {
     });
   });
   describe('Min File Size', function () {
-    it('should match the pass.schema min file size of 1kb', function () {
-      expect(v.schema.minFileSizeInKb.value as number).to.equal(1);
+    it('should match the pass.schema min of -1 for no check', function () {
+      expect(v.schema.minFileSizeInKb.value as number).to.equal(-1);
     });
   });
   describe('Max File Size', function () {

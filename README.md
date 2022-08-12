@@ -40,3 +40,12 @@ npm run test
 ```
 
 **Note:** If you run npm install in the future, it will delete the symbolic link and re-download the original code from npm, so you'll have to repeat the above steps.
+
+## Version Updates
+---
+When the 3dc-validator version changes, there are several places in this codebase that should be updated to reflect the latest version.
+A bash script makes it easier to rename all occurances across the project.
+```
+./set-version.sh {new-version-number}
+```
+**Note:** By default, the file will lack execute privileges. To fix that, run ```chmod +x set-version.sh```
