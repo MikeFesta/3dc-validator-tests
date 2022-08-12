@@ -11,6 +11,8 @@ By default, the lastest version of 3dc-validator in npm is tested, but you can c
 
 ## File types in this repository
 ---
+* blender/**/*.blend - Blender source files for some test models
+* blender/**/textures - Texture files that go with the blender source files
 * models/*.glb - Binary 3D files in glTF format
 * products/*.json - Product information for models (optional)
 * schemas/*.json - 3D Commerce schema definition files
