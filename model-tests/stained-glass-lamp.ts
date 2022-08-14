@@ -41,7 +41,17 @@ describe('stained glass lamp', function () {
       } catch (err) {
         throw new Error('Unable to load test schema: single-item-web-ar.json');
       }
+      try {
+        await v.productInfo.loadFromFileSystem('products/stained-glass-lamp.json');
+      } catch (err) {
+        throw new Error('Unable to load product info: stained-glass-lamp.json');
+      }
       await v.generateReport();
+    });
+    it('should pass the glTF Validator', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.gltfValidator.tested).to.be.true;
+      expect(v.report.gltfValidator.pass).to.be.true;
     });
     it('should fail file size', function () {
       expect(v.reportReady).to.be.true;
@@ -62,6 +72,46 @@ describe('stained glass lamp', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.texturesPowerOfTwo.tested).to.be.true;
       expect(v.report.texturesPowerOfTwo.pass).to.be.true;
+    });
+    it('should not test for square texture dimensions', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.texturesQuadratic.tested).to.be.false;
+      expect(v.report.texturesQuadratic.message).to.equal('Not Required, but would have failed');
+    });
+    it('should pass max texture height', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.textureDimensionsMaxHeight.tested).to.be.true;
+      expect(v.report.textureDimensionsMaxHeight.pass).to.be.true;
+    });
+    it('should fail min texture height', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.textureDimensionsMinHeight.tested).to.be.true;
+      expect(v.report.textureDimensionsMinHeight.pass).to.be.false;
+    });
+    it('should pass max texture width', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.textureDimensionsMaxWidth.tested).to.be.true;
+      expect(v.report.textureDimensionsMaxWidth.pass).to.be.true;
+    });
+    it('should fail min texture width', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.textureDimensionsMinWidth.tested).to.be.true;
+      expect(v.report.textureDimensionsMinWidth.pass).to.be.false;
+    });
+    it('should pass dimensions not too big', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.dimensionsMax.tested).to.be.true;
+      expect(v.report.dimensionsMax.pass).to.be.true;
+    });
+    it('should pass dimensions not too small', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.dimensionsMin.tested).to.be.true;
+      expect(v.report.dimensionsMin.pass).to.be.true;
+    });
+    it('should have dimensions that match the product', function () {
+      expect(v.reportReady).to.be.true;
+      expect(v.report.productDimensionsWithinTolerance.tested).to.be.true;
+      expect(v.report.productDimensionsWithinTolerance.pass).to.be.true;
     });
   });
 });
