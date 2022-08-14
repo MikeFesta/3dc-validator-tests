@@ -41,7 +41,7 @@ describe('triangle count passing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.true;
-      expect(v.report.triangleCount.message).to.equal('12 <= 30000');
+      expect(v.report.triangleCount.message).to.equal('12 <= 30,000');
     });
   });
 });

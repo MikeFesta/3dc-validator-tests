@@ -68,6 +68,11 @@ describe('loading failing model', function () {
       expect(v.model.texturesPowerOfTwo.value as boolean).to.be.false;
     });
   });
+  describe('quadratic textures', function () {
+    it('should pass for blender-default-cube-failing because the resolution is 500x500', function () {
+      expect(v.model.texturesQuadratic.value as boolean).to.be.true;
+    });
+  });
   describe('triangle count', function () {
     it('should match the blender-default-cube-failing triangle count of 12', function () {
       expect(v.model.triangleCount.value as number).to.equal(12);

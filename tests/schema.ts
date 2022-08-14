@@ -22,7 +22,7 @@ describe('loading passing schema', function () {
     });
   });
   describe('max file size', function () {
-    it('should match the pass schema max file size of 5120kb', function () {
+    it('should match the pass schema max file size of 5,120kb', function () {
       expect(v.schema.maxFileSizeInKb.value as number).to.equal(5120);
     });
   });

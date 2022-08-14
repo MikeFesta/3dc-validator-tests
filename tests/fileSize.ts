@@ -44,7 +44,7 @@ describe('file size passing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
-      expect(v.report.fileSize.message).to.equal('2kb <= 5120kb');
+      expect(v.report.fileSize.message).to.equal('2kb <= 5,120kb');
     });
   });
 
@@ -79,7 +79,7 @@ describe('file size passing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.true;
-      expect(v.report.fileSize.message).to.equal('1kb <= 2kb <= 5120kb');
+      expect(v.report.fileSize.message).to.equal('1kb <= 2kb <= 5,120kb');
     });
   });
 });
@@ -127,7 +127,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too small: 12kb < 1024kb');
+      expect(v.report.fileSize.message).to.equal('File too small: 12kb < 1,024kb');
     });
   });
 
