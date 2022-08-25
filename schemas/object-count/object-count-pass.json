@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-alpha.10",
+  "objectCount": {
+    "meshes": {
+      "maximum": 5
+    },
+    "nodes": {
+      "maximum": 1
+    },
+    "primitives": {
+      "maximum": 3
+    }
+  }
+}
