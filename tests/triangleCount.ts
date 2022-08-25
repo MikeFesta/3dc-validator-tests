@@ -70,7 +70,7 @@ describe('triangle count failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.triangleCount.tested).to.be.true;
       expect(v.report.triangleCount.pass).to.be.false;
-      expect(v.report.triangleCount.message).to.equal('Too many triangles: 12 > 10');
+      expect(v.report.triangleCount.message).to.equal('12 > 10');
     });
   });
 });

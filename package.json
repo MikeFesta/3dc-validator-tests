@@ -1,6 +1,6 @@
 {
   "name": "@mikefesta/3dc-validator-tests",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.9",
   "author": "Mike Festa",
   "description": "A collection of 3D models, schemas, and unit tests for the 3dc-validator npm package. Stored as a separate repo to keep large binaries out of the main project.",
   "license": "SPDX-License-Identifier: Apache-2.0",

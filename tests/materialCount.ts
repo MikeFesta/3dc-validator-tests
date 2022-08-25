@@ -76,7 +76,7 @@ describe('material count failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.false;
-      expect(v.report.materialCount.message).to.equal('Too many materials: 3 > 1');
+      expect(v.report.materialCount.message).to.equal('3 > 1');
     });
   });
 });
