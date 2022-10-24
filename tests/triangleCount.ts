@@ -24,7 +24,7 @@ describe('triangle count passing report', function () {
     it('should report not tested, but have the triangle count in the message', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.triangleCount.tested).to.be.false;
-      expect(v.report.triangleCount.message).to.equal('Triangle count: 12');
+      expect(v.report.triangleCount.message).to.equal('12');
     });
   });
 

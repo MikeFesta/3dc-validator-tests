@@ -26,7 +26,7 @@ describe('material count passing report', function () {
       expect(v.model.materialCount.value).to.equal(1);
       expect(v.reportReady).to.be.true;
       expect(v.report.materialCount.tested).to.be.false;
-      expect(v.report.materialCount.message).to.equal('1 material');
+      expect(v.report.materialCount.message).to.equal('1');
     });
   });
 

@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-rc.1",
   "fileSizeInKb": {
-    "min": 1,
-    "max": 2
+    "maximum": 2,
+    "minimum": 1
   }
 }

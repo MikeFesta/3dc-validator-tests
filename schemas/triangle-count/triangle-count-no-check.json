@@ -1,4 +1,8 @@
 {
-  "version": "1.0.0-alpha.7",
-  "maxTriangleCount": -1
+  "version": "1.0.0-rc.1",
+  "model": {
+    "triangles": {
+      "maximum": -1
+    }
+  }
 }

@@ -24,7 +24,7 @@ describe('clean transform passing report', function () {
     it('should report not required, but indicate pass in the message', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.rootNodeCleanTransform.tested).to.be.false;
-      expect(v.report.rootNodeCleanTransform.message).to.equal('true; not required by schema');
+      expect(v.report.rootNodeCleanTransform.message).to.equal('true');
     });
   });
 

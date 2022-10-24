@@ -1,4 +1,6 @@
 {
-  "version": "1.0.0-alpha.7",
-  "maxMaterialCount": -1
+  "version": "1.0.0-alpha.17",
+  "materials": {
+    "maximum": -1
+  }
 }

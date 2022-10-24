@@ -5,48 +5,48 @@
     "minimum": -1
   },
   "materials": {
-    "maximum": 2,
-    "minimum": 0
+    "maximum": 5,
+    "minimum": -1
   },
   "model": {
     "objectCount": {
       "nodes": {
         "maximum": 5,
-        "minimum": 1
+        "minimum": -1
       },
       "meshes": {
         "maximum": 5,
-        "minimum": 1
+        "minimum": -1
       },
       "primitives": {
         "maximum": 5,
-        "minimum": 1
+        "minimum": -1
       }
     },
     "requireBeveledEdges": true,
     "requireCleanRootNodeTransform": true,
     "requireManifoldEdges": true,
     "triangles": {
-      "maximum": 30000,
-      "minimum": 1
+      "maximum": 100000,
+      "minimum": -1
     }
   },
   "product": {
     "dimensions": {
       "height": {
-        "maximum": 100.0,
+        "maxium": 100.0,
         "minimum": 0.01,
         "percentTolerance": 3
       },
       "length": {
-        "maximum": 100.0,
+        "maxium": 100.0,
         "minimum": 0.01,
-        "percentTolerance": 1
+        "percentTolerance": 3
       },
       "width": {
-        "maximum": 100.0,
+        "maxium": 100.0,
         "minimum": 0.01,
-        "percentTolerance": 2
+        "percentTolerance": 3
       }
     }
   },
@@ -60,10 +60,19 @@
       "minimum": 30
     },
     "requireDimensionsBePowersOfTwo": true,
-    "requireDimensionsBeQuadratic": true,
+    "requireDimensionsBeQuadratic": false,
     "width": {
       "maxium": 2048,
       "minimum": 512
     }
+  },
+  "uvs": {
+    "notInverted": true,
+    "notOverlapping": true,
+    "pixelsPerMeter": {
+      "maximum": 100000,
+      "minimum": -1
+    },
+    "requireRangeZeroToOne": true
   }
 }

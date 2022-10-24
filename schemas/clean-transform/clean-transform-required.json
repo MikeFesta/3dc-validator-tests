@@ -1,4 +1,6 @@
 {
-  "version": "1.0.0-alpha.10",
-  "requireCleanRootNodeTransform": true
+  "version": "1.0.0-rc.1",
+  "model": {
+    "requireCleanRootNodeTransform": true
+  }
 }

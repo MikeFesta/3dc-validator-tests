@@ -26,7 +26,7 @@ describe('object count passing report', function () {
       expect(v.model.meshCount.value).to.equal(1);
       expect(v.reportReady).to.be.true;
       expect(v.report.meshCount.tested).to.be.false;
-      expect(v.report.meshCount.message).to.equal('1; not required by schema');
+      expect(v.report.meshCount.message).to.equal('1');
     });
   });
 
@@ -62,11 +62,11 @@ describe('object count passing report', function () {
     });
     it('should report being under the max node count', function () {
       expect(v.schema.maxNodeCount.value).to.equal(1);
-      expect(v.model.nodeCount.value).to.equal(0);
+      expect(v.model.nodeCount.value).to.equal(1);
       expect(v.reportReady).to.be.true;
       expect(v.report.nodeCount.tested).to.be.true;
       expect(v.report.nodeCount.pass).to.be.true;
-      expect(v.report.nodeCount.message).to.equal('0 <= 1');
+      expect(v.report.nodeCount.message).to.equal('1 <= 1');
     });
   });
 
@@ -112,11 +112,11 @@ describe('object count failing report', function () {
   describe('max mesh count', function () {
     it('should report being over the max mesh count', function () {
       expect(v.schema.maxMeshCount.value).to.equal(1);
-      expect(v.model.meshCount.value).to.equal(3);
+      expect(v.model.meshCount.value).to.equal(2);
       expect(v.reportReady).to.be.true;
       expect(v.report.meshCount.tested).to.be.true;
       expect(v.report.meshCount.pass).to.be.false;
-      expect(v.report.meshCount.message).to.equal('3 > 1');
+      expect(v.report.meshCount.message).to.equal('2 > 1');
     });
   });
 

@@ -26,7 +26,7 @@ describe('file size passing report', function () {
       expect(v.schema.minFileSizeInKb.value).to.equal(-1);
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File size: 2kb');
+      expect(v.report.fileSize.message).to.equal('2kb');
     });
   });
 
@@ -109,7 +109,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too large: 12kb > 1kb');
+      expect(v.report.fileSize.message).to.equal('File too large: 13kb > 1kb');
     });
   });
 
@@ -127,7 +127,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too small: 12kb < 1,024kb');
+      expect(v.report.fileSize.message).to.equal('File too small: 13kb < 1,024kb');
     });
   });
 
@@ -144,7 +144,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too large: 12kb > 2kb');
+      expect(v.report.fileSize.message).to.equal('File too large: 13kb > 2kb');
     });
   });
 });

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-alpha.10",
+  "version": "1.0.0-alpha.11",
   "fileSizeInKb": {
     "min": -1,
     "max": 3072
@@ -48,6 +48,10 @@
   },
   "requireCleanRootNodeTransform": true,
   "uvs": {
-    "requireRangeZeroToOne": false
+    "requireRangeZeroToOne": true,
+    "pixelsPerMeter": {
+      "maximum": 4096,
+      "minimum": 100
+    }
   }
 }
