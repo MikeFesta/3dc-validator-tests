@@ -2,8 +2,8 @@
   "version": "1.0.0-rc.1",
   "textures": {
     "pbrColorRange": {
-      "maximum": 200,
-      "minimum": 50
+      "maximum": -1,
+      "minimum": -1
     }
   }
 }
