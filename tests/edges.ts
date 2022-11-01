@@ -68,3 +68,71 @@ describe('edges not beveled on default cube', function () {
     });
   });
 });
+
+describe('non-manifold edges on non-manifold cube', function () {
+  const v = new Validator();
+
+  before('load non-manifold cube', async function () {
+    try {
+      await v.model.loadFromFileSystem('models/blender-default-cube-non-manifold.glb');
+    } catch (err) {
+      throw new Error('Unable to load test model: blender-default-cube-non-manifold.glb');
+    }
+  });
+  describe('loaded', function () {
+    it('should load the blender-default-cube-non-manifold', function () {
+      expect(v.model.loaded).to.be.true;
+    });
+  });
+  describe('non-manifold edges', function () {
+    before('load schema', async function () {
+      try {
+        await v.schema.loadFromFileSystem('schemas/edges/must-be-manifold.json');
+      } catch (err) {
+        throw new Error('Unable to load test schema: must-be-manifold.json');
+      }
+      await v.generateReport();
+    });
+    it('should be 6', function () {
+      expect(v.model.nonManifoldEdgeCount.value as number).to.equal(6);
+      expect(v.schema.requireManifoldEdges.value).to.be.true;
+      expect(v.report.requireManifoldEdges.tested).to.be.true;
+      expect(v.report.requireManifoldEdges.pass).to.be.false;
+      expect(v.report.requireManifoldEdges.message).to.equal('6 non-manifold edges');
+    });
+  });
+});
+
+describe('no non-manifold edges on default cube', function () {
+  const v = new Validator();
+
+  before('load beveled cube', async function () {
+    try {
+      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+    } catch (err) {
+      throw new Error('Unable to load test model: blender-default-cube-passing.glb');
+    }
+  });
+  describe('loaded', function () {
+    it('should load the blender-default-cube-passing', function () {
+      expect(v.model.loaded).to.be.true;
+    });
+  });
+  describe('hard edges', function () {
+    before('load schema', async function () {
+      try {
+        await v.schema.loadFromFileSystem('schemas/edges/must-be-manifold.json');
+      } catch (err) {
+        throw new Error('Unable to load test schema: must-be-manifold.json');
+      }
+      await v.generateReport();
+    });
+    it('should be zero', function () {
+      expect(v.model.nonManifoldEdgeCount.value as number).to.equal(0);
+      expect(v.schema.requireManifoldEdges.value).to.be.true;
+      expect(v.report.requireManifoldEdges.tested).to.be.true;
+      expect(v.report.requireManifoldEdges.pass).to.be.true;
+      expect(v.report.requireManifoldEdges.message).to.equal('0 non-manifold edges');
+    });
+  });
+});
