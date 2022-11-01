@@ -23,9 +23,9 @@
         "minimum": -1
       }
     },
-    "requireBeveledEdges": true,
+    "requireBeveledEdges": false,
     "requireCleanRootNodeTransform": true,
-    "requireManifoldEdges": true,
+    "requireManifoldEdges": false,
     "triangles": {
       "maximum": 100000,
       "minimum": -1
