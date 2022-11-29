@@ -1,6 +1,8 @@
 import { expect } from 'chai';
 import { Validator } from '@mikefesta/3dc-validator';
 
+// TODO: add new tests for minimum node/mesh/primitive
+
 describe('object count passing report', function () {
   const v = new Validator();
 

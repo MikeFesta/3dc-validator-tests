@@ -30,12 +30,12 @@ describe('material count passing report', function () {
     });
   });
 
-  describe('max material count', function () {
+  describe('max material count with no minimum', function () {
     before('load schema', async function () {
       try {
-        await v.schema.loadFromFileSystem('schemas/material-count/material-count-pass.json');
+        await v.schema.loadFromFileSystem('schemas/material-count/material-count-no-min-pass.json');
       } catch (err) {
-        throw new Error('Unable to load test schema: material-count-pass.json');
+        throw new Error('Unable to load test schema: material-count-no-min-pass.json');
       }
       await v.generateReport();
     });
@@ -61,12 +61,12 @@ describe('material count failing report', function () {
     }
   });
 
-  describe('max material count', function () {
+  describe('max material count with no minimum', function () {
     before('load schema', async function () {
       try {
-        await v.schema.loadFromFileSystem('schemas/material-count/material-count-fail.json');
+        await v.schema.loadFromFileSystem('schemas/material-count/material-count-no-min-fail.json');
       } catch (err) {
-        throw new Error('Unable to load test schema: material-count-fail.json');
+        throw new Error('Unable to load test schema: material-count-no-min-fail.json');
       }
       await v.generateReport();
     });
@@ -77,6 +77,68 @@ describe('material count failing report', function () {
       expect(v.report.materialCount.tested).to.be.true;
       expect(v.report.materialCount.pass).to.be.false;
       expect(v.report.materialCount.message).to.equal('3 > 1');
+    });
+  });
+});
+
+describe('material count - no materials - passing', function () {
+  const v = new Validator();
+
+  before('load model', async function () {
+    try {
+      await v.model.loadFromFileSystem('models/blender-default-cube-no-materials.glb');
+    } catch (err) {
+      throw new Error('Unable to load test model: blender-default-cube-no-materials.glb');
+    }
+  });
+
+  describe('max material count with no minimum', function () {
+    before('load schema', async function () {
+      try {
+        await v.schema.loadFromFileSystem('schemas/material-count/material-count-no-min-pass.json');
+      } catch (err) {
+        throw new Error('Unable to load test schema: material-count-no-min-pass.json');
+      }
+      await v.generateReport();
+    });
+    it('should report being under the max material count', function () {
+      expect(v.schema.maxMaterialCount.value).to.equal(5);
+      expect(v.model.materialCount.value).to.equal(0);
+      expect(v.reportReady).to.be.true;
+      expect(v.report.materialCount.tested).to.be.true;
+      expect(v.report.materialCount.pass).to.be.true;
+      expect(v.report.materialCount.message).to.equal('0 <= 5');
+    });
+  });
+});
+
+describe('material count - no materials - failing', function () {
+  const v = new Validator();
+
+  before('load model', async function () {
+    try {
+      await v.model.loadFromFileSystem('models/blender-default-cube-no-materials.glb');
+    } catch (err) {
+      throw new Error('Unable to load test model: blender-default-cube-no-materials.glb');
+    }
+  });
+
+  describe('min material count with no maximum', function () {
+    before('load schema', async function () {
+      try {
+        await v.schema.loadFromFileSystem('schemas/material-count/material-count-no-max-fail.json');
+      } catch (err) {
+        throw new Error('Unable to load test schema: material-count-no-max-fail.json');
+      }
+      await v.generateReport();
+    });
+    it('should report being under the material count', function () {
+      expect(v.schema.minMaterialCount.value).to.equal(4);
+      expect(v.model.materialCount.value).to.equal(0);
+      expect(v.reportReady).to.be.true;
+      expect(v.report.materialCount.tested).to.be.true;
+      expect(v.report.materialCount.pass).to.be.false;
+      expect(v.report.materialCount.message).to.equal('0 < 4');
     });
   });
 });

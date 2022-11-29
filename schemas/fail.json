@@ -34,17 +34,17 @@
   "product": {
     "dimensions": {
       "height": {
-        "maxium": 10,
+        "maximum": 10,
         "minimum": 1,
         "percentTolerance": 2
       },
       "length": {
-        "maxium": 10,
+        "maximum": 10,
         "minimum": 1,
         "percentTolerance": 2
       },
       "width": {
-        "maxium": 10,
+        "maximum": 10,
         "minimum": 1,
         "percentTolerance": 2
       }
@@ -62,7 +62,7 @@
     "requireDimensionsBePowersOfTwo": true,
     "requireDimensionsBeQuadratic": true,
     "width": {
-      "maxium": 2048,
+      "maximum": 2048,
       "minimum": 512
     }
   }

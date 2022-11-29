@@ -62,7 +62,7 @@
     "requireDimensionsBePowersOfTwo": true,
     "requireDimensionsBeQuadratic": true,
     "width": {
-      "maxium": 2048,
+      "maximum": 2048,
       "minimum": 512
     }
   }

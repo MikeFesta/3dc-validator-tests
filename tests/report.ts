@@ -42,9 +42,8 @@ describe('generating passing report', function () {
     });
   });
   describe('texture dimensions are powers of 2', function () {
-    it('should pass for blender-default-cube-passing', function () {
-      expect(v.report.texturesPowerOfTwo.tested).to.be.true;
-      expect(v.report.texturesPowerOfTwo.pass).to.be.true;
+    it('should be skipped for blender-default-cube-passing', function () {
+      expect(v.report.texturesPowerOfTwo.tested).to.be.false;
     });
   });
   describe('max dimensions', function () {
@@ -108,6 +107,16 @@ describe('generating failing report', function () {
   });
   describe('max dimensions', function () {
     it('should fail for being larger than 10m width and depth', function () {
+      expect(v.schema.maxHeight.value).to.equal(10);
+      expect(v.schema.maxLength.value).to.equal(10);
+      expect(v.schema.maxWidth.value).to.equal(10);
+      expect(v.schema.minHeight.value).to.equal(1);
+      expect(v.schema.minLength.value).to.equal(1);
+      expect(v.schema.minWidth.value).to.equal(1);
+      expect(v.model.height.value).to.equal(0.2);
+      expect(v.model.length.value).to.equal(12);
+      expect(v.model.width.value).to.equal(12);
+      expect(v.reportReady).to.be.true;
       expect(v.report.dimensionsMax.tested).to.be.true;
       expect(v.report.dimensionsMax.pass).to.be.false;
     });

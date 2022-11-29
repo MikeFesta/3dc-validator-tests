@@ -1,6 +1,7 @@
 {
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-rc.1",
   "materials": {
-    "maximum": -1
+    "maximum": -1,
+    "minimum": -1
   }
 }

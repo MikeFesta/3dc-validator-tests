@@ -34,17 +34,17 @@
   "product": {
     "dimensions": {
       "height": {
-        "maxium": 100.0,
+        "maximum": 100.0,
         "minimum": 0.01,
         "percentTolerance": 3
       },
       "length": {
-        "maxium": 100.0,
+        "maximum": 100.0,
         "minimum": 0.01,
         "percentTolerance": 3
       },
       "width": {
-        "maxium": 100.0,
+        "maximum": 100.0,
         "minimum": 0.01,
         "percentTolerance": 3
       }
@@ -62,17 +62,17 @@
     "requireDimensionsBePowersOfTwo": true,
     "requireDimensionsBeQuadratic": false,
     "width": {
-      "maxium": 2048,
+      "maximum": 2048,
       "minimum": 512
     }
   },
   "uvs": {
-    "notInverted": true,
-    "notOverlapping": true,
     "pixelsPerMeter": {
       "maximum": 100000,
       "minimum": -1
     },
+    "requireNotInverted": true,
+    "requireNotOverlapping": true,
     "requireRangeZeroToOne": true
   }
 }
