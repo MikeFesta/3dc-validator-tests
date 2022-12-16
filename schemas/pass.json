@@ -23,7 +23,7 @@
         "minimum": 1
       }
     },
-    "requireBeveledEdges": true,
+    "requireBeveledEdges": false,
     "requireCleanRootNodeTransform": true,
     "requireManifoldEdges": true,
     "triangles": {
@@ -56,7 +56,7 @@
       "minimum": 512
     },
     "pbrColorRange": {
-      "maximum": 240,
+      "maximum": 243,
       "minimum": 30
     },
     "requireDimensionsBePowersOfTwo": true,

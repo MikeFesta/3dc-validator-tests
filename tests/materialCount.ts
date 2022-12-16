@@ -6,7 +6,7 @@ describe('material count passing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
@@ -55,7 +55,7 @@ describe('material count failing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-failing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
@@ -86,7 +86,7 @@ describe('material count - no materials - passing', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-no-materials.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-no-materials.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-no-materials.glb');
     }
@@ -117,7 +117,7 @@ describe('material count - no materials - failing', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-no-materials.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-no-materials.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-no-materials.glb');
     }

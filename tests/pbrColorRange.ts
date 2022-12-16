@@ -6,9 +6,13 @@ describe('pbr color check passing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-pbr-safe-colors.glb');
+      await v.model.loadFromFileSystem([
+        'models/default-cube-pbr-safe-colors.gltf',
+        'models/default-cube-pbr-safe-colors.bin',
+        'textures/pbr-30-240.png',
+      ]);
     } catch (err) {
-      throw new Error('Unable to load test model: blender-default-cube-pbr-safe-colors.glb');
+      throw new Error('Unable to load test model: default-cube-pbr-safe-colors.gltf');
     }
   });
 
@@ -62,7 +66,7 @@ describe('pbr color check failing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-pbr-unsafe-colors.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-pbr-unsafe-colors.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-pbr-unsafe-colors.glb');
     }

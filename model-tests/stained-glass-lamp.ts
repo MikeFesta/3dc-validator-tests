@@ -7,7 +7,7 @@ describe('stained glass lamp', function () {
   before('load model', async function () {
     try {
       this.timeout(5000); // This 40mb file takes over 2 seconds to load
-      await v.model.loadFromFileSystem('models/stained-glass-lamp.glb');
+      await v.model.loadFromFileSystem(['models/stained-glass-lamp.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: stained-glass-lamp.glb');
     }
@@ -98,15 +98,10 @@ describe('stained glass lamp', function () {
       expect(v.report.textureDimensionsMinWidth.tested).to.be.true;
       expect(v.report.textureDimensionsMinWidth.pass).to.be.false;
     });
-    it('should pass dimensions not too big', function () {
+    it('should pass overall dimensions', function () {
       expect(v.reportReady).to.be.true;
-      expect(v.report.dimensionsMax.tested).to.be.true;
-      expect(v.report.dimensionsMax.pass).to.be.true;
-    });
-    it('should pass dimensions not too small', function () {
-      expect(v.reportReady).to.be.true;
-      expect(v.report.dimensionsMin.tested).to.be.true;
-      expect(v.report.dimensionsMin.pass).to.be.true;
+      expect(v.report.overallDimensionsWithinTolerance.tested).to.be.true;
+      expect(v.report.overallDimensionsWithinTolerance.pass).to.be.true;
     });
     it('should have dimensions that match the product', function () {
       expect(v.reportReady).to.be.true;

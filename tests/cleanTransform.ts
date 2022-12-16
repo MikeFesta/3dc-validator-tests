@@ -6,7 +6,7 @@ describe('clean transform passing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
@@ -51,7 +51,7 @@ describe('root node clean transform failing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-bad-transform.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-bad-transform.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-bad-transform.glb');
     }

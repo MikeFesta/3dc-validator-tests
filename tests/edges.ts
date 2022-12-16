@@ -6,7 +6,7 @@ describe('no hard edges on beveled cube', function () {
 
   before('load beveled cube', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-beveled.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-beveled.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-beveled.glb');
     }
@@ -49,7 +49,7 @@ describe('edges not beveled on default cube', function () {
   describe('hard edges', function () {
     before('load beveled cube', async function () {
       try {
-        await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+        await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
         await v.generateReport();
       } catch (err) {
         throw new Error('Unable to load test model: blender-default-cube-passing.glb');
@@ -81,7 +81,7 @@ describe('non-manifold edges on non-manifold cube', function () {
   describe('non-manifold edges', function () {
     before('load non-manifold cube', async function () {
       try {
-        await v.model.loadFromFileSystem('models/blender-default-cube-non-manifold.glb');
+        await v.model.loadFromFileSystem(['models/blender-default-cube-non-manifold.glb']);
         await v.generateReport();
       } catch (err) {
         throw new Error('Unable to load test model: blender-default-cube-non-manifold.glb');
@@ -103,7 +103,7 @@ describe('no non-manifold edges on default cube', function () {
 
   before('load beveled cube', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }

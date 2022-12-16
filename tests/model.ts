@@ -6,7 +6,7 @@ describe('loading passing model', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
@@ -53,7 +53,7 @@ describe('loading failing model', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-failing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
@@ -61,16 +61,6 @@ describe('loading failing model', function () {
   describe('loaded', function () {
     it('should load the blender-default-cube-failing model', function () {
       expect(v.model.loaded).to.be.true;
-    });
-  });
-  describe('power of 2 textures', function () {
-    it('should fail for blender-default-cube-failing because the resolution is 500x500', function () {
-      expect(v.model.texturesPowerOfTwo.value as boolean).to.be.false;
-    });
-  });
-  describe('quadratic textures', function () {
-    it('should pass for blender-default-cube-failing because the resolution is 500x500', function () {
-      expect(v.model.texturesQuadratic.value as boolean).to.be.true;
     });
   });
   describe('triangle count', function () {

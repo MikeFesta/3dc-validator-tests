@@ -6,7 +6,7 @@ describe('file size passing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
@@ -89,7 +89,7 @@ describe('file size failing report', function () {
 
   before('load model', async function () {
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-failing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
@@ -109,7 +109,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too large: 13kb > 1kb');
+      expect(v.report.fileSize.message).to.equal('13kb > 1kb');
     });
   });
 
@@ -127,7 +127,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too small: 13kb < 1,024kb');
+      expect(v.report.fileSize.message).to.equal('13kb < 1,024kb');
     });
   });
 
@@ -144,7 +144,7 @@ describe('file size failing report', function () {
       expect(v.reportReady).to.be.true;
       expect(v.report.fileSize.tested).to.be.true;
       expect(v.report.fileSize.pass).to.be.false;
-      expect(v.report.fileSize.message).to.equal('File too large: 13kb > 2kb');
+      expect(v.report.fileSize.message).to.equal('13kb > 2kb');
     });
   });
 });

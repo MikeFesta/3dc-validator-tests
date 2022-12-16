@@ -11,7 +11,7 @@ describe('generating passing report', function () {
       throw new Error('Unable to load test schema: pass.json');
     }
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-passing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-passing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-passing.glb');
     }
@@ -46,16 +46,10 @@ describe('generating passing report', function () {
       expect(v.report.texturesPowerOfTwo.tested).to.be.false;
     });
   });
-  describe('max dimensions', function () {
-    it('should be less than 100x100x100', function () {
-      expect(v.report.dimensionsMax.tested).to.be.true;
-      expect(v.report.dimensionsMax.pass).to.be.true;
-    });
-  });
-  describe('min dimensions', function () {
-    it('should be greater than 0.01x0.01x0.01', function () {
-      expect(v.report.dimensionsMin.tested).to.be.true;
-      expect(v.report.dimensionsMin.pass).to.be.true;
+  describe('overall dimensions', function () {
+    it('should be greater than 0.01x0.01x0.01 and less than 100x100x100', function () {
+      expect(v.report.overallDimensionsWithinTolerance.tested).to.be.true;
+      expect(v.report.overallDimensionsWithinTolerance.pass).to.be.true;
     });
   });
 });
@@ -70,7 +64,7 @@ describe('generating failing report', function () {
       throw new Error('Unable to load test schema: fail.json');
     }
     try {
-      await v.model.loadFromFileSystem('models/blender-default-cube-failing.glb');
+      await v.model.loadFromFileSystem(['models/blender-default-cube-failing.glb']);
     } catch (err) {
       throw new Error('Unable to load test model: blender-default-cube-failing.glb');
     }
@@ -105,7 +99,7 @@ describe('generating failing report', function () {
       expect(v.report.materialCount.pass).to.be.false;
     });
   });
-  describe('max dimensions', function () {
+  describe('overall dimensions over max', function () {
     it('should fail for being larger than 10m width and depth', function () {
       expect(v.schema.maxHeight.value).to.equal(10);
       expect(v.schema.maxLength.value).to.equal(10);
@@ -117,14 +111,14 @@ describe('generating failing report', function () {
       expect(v.model.length.value).to.equal(12);
       expect(v.model.width.value).to.equal(12);
       expect(v.reportReady).to.be.true;
-      expect(v.report.dimensionsMax.tested).to.be.true;
-      expect(v.report.dimensionsMax.pass).to.be.false;
+      expect(v.report.overallDimensionsWithinTolerance.tested).to.be.true;
+      expect(v.report.overallDimensionsWithinTolerance.pass).to.be.false;
     });
   });
-  describe('min dimensions', function () {
+  describe('overall dimensions under min', function () {
     it('should fail for height smaller than 1m', function () {
-      expect(v.report.dimensionsMin.tested).to.be.true;
-      expect(v.report.dimensionsMin.pass).to.be.false;
+      expect(v.report.overallDimensionsWithinTolerance.tested).to.be.true;
+      expect(v.report.overallDimensionsWithinTolerance.pass).to.be.false;
     });
   });
 });
