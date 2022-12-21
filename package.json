@@ -1,6 +1,6 @@
 {
   "name": "@mikefesta/3dc-validator-tests",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0",
   "author": "Mike Festa",
   "description": "A collection of 3D models, schemas, and unit tests for the 3dc-validator npm package. Stored as a separate repo to keep large binaries out of the main project.",
   "license": "SPDX-License-Identifier: Apache-2.0",
@@ -26,7 +26,7 @@
     "test-by-name": "mocha -n loader=ts-node/esm 'tests/**/*.ts' --grep"
   },
   "devDependencies": {
-    "@mikefesta/3dc-validator": "1.0.0-rc.8",
+    "@mikefesta/3dc-validator": "1.0.0",
     "@types/chai": "^4.3.3",
     "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
